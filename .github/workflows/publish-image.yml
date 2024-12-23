@@ -58,7 +58,7 @@ jobs:
 
       - name: Build and push Docker image
         id: build-and-push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v6
         with:
           context: ./images
           platforms: |
@@ -74,3 +74,4 @@ jobs:
             org.opencontainers.image.source=${{github.server_url}}/${{github.repository}}
             org.opencontainers.image.description=https://github.com/actions/runner/releases/tag/v${{ steps.image.outputs.version }}
             org.opencontainers.image.licenses=MIT
+          cache-from: type=${{ env.REGISTRY }},ref=${{ env.IMAGE_NAME }}:latest
