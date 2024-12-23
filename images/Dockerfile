@@ -41,7 +41,7 @@ ENV ImageOS=ubuntu22
 
 # 'gpg-agent' and 'software-properties-common' are needed for the 'add-apt-repository' command that follows
 RUN apt update -y \
-    && apt install -y --no-install-recommends sudo lsb-release gpg-agent software-properties-common curl jq unzip bzip2 g++ gcc make tar wget dnsutils \
+    && apt install -y --no-install-recommends sudo lsb-release gpg-agent software-properties-common curl jq unzip bzip2 make tar wget dnsutils \
     && curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash \
     && rm -rf /var/lib/apt/lists/*
 
